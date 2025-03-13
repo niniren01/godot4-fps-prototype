@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 
 	var flat_velocity = character_body.velocity
 	flat_velocity.y = 0.0
+	#character_body.velocity += (move_accel * move_dir - flat_velocity * drag) * delta
 	character_body.velocity += move_accel * move_dir - flat_velocity * drag
+
 	
 	character_body.move_and_slide()

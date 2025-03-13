@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://4npjgm5mneml"]
+[gd_scene load_steps=12 format=3 uid="uid://4npjgm5mneml"]
 
 [ext_resource type="PackedScene" uid="uid://yyf6n8h7uq57" path="res://character/player.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://b3foqjxea2p0h" path="res://icon.svg" id="1_fj7yv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -17,6 +18,8 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
 albedo_color = Color(0.632033, 0, 0.013966, 1)
+albedo_texture = ExtResource("1_fj7yv")
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
 size = Vector3(40, 1, 40)

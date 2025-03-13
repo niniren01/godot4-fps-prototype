@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://yyf6n8h7uq57"]
+[gd_scene load_steps=5 format=3 uid="uid://yyf6n8h7uq57"]
 
 [ext_resource type="Script" uid="uid://c8n25wfmewh26" path="res://character/player.gd" id="1_2orxn"]
+[ext_resource type="Script" uid="uid://c5iq1g5wdaap6" path="res://character/character_mover.gd" id="2_monf5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8e4qx"]
 
@@ -21,3 +22,6 @@ shape = SubResource("CapsuleShape3D_2orxn")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CharacterMover" type="Node3D" parent="."]
+script = ExtResource("2_monf5")

@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var character_mover: CharaterMover = $CharacterMover
 
 @export var mouse_sensitivity_h = 0.15
 @export var mouse_sensitivity_y = 0.15
@@ -27,3 +28,12 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var move_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	character_mover.set_move_dir(move_dir)
+	
+	if Input.is_action_just_pressed("jump"):
+		character_mover.jump()
+	
+	

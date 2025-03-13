@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://4npjgm5mneml"]
+[gd_scene load_steps=11 format=3 uid="uid://4npjgm5mneml"]
+
+[ext_resource type="PackedScene" uid="uid://yyf6n8h7uq57" path="res://character/player.tscn" id="1_f3sb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -43,6 +45,7 @@ shadow_enabled = true
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="Ground" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = SubResource("StandardMaterial3D_tlwt5")
 mesh = SubResource("BoxMesh_aqk2v")
 
@@ -91,5 +94,4 @@ mesh = SubResource("BoxMesh_dwbse")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall4/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_pkg7o")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.844945, 0.534854, 0, -0.534854, 0.844945, 1.42889, 8.4601, 9.60209)
+[node name="Player" parent="." instance=ExtResource("1_f3sb7")]

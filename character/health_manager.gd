@@ -3,7 +3,7 @@ extends Node3D
 @export var max_health = 100
 @onready var cur_health = max_health
 @export var gib_at = -10
-@export var verbose = false
+@export var verbose = true
 
 signal died
 signal healed
@@ -19,6 +19,7 @@ func _ready() -> void:
 func hurt(damage_data: DamageData):
 	if cur_health < 0:
 		return
+		
 	cur_health -= damage_data.amount
 	if cur_health <= gib_at:
 		gibbed.emit()
@@ -38,3 +39,13 @@ func heal(amount: int):
 	health_changed.emit(cur_health, max_health)
 	if verbose:
 		print("healed for %s, health: %s/%s" % [amount, cur_health, max_health])
+
+
+# add a timer then test can it work
+func test_damage():
+	var d = DamageData.new()
+	d.amount = 30
+	hurt(d)
+
+func test_heal():
+	heal(10)

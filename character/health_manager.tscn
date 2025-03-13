@@ -4,3 +4,4 @@
 
 [node name="HealthManager" type="Node3D"]
 script = ExtResource("1_er6qs")
+max_health = 90

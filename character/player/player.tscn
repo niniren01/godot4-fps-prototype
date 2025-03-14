@@ -318,11 +318,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_qh58e")
 }
 
-[node name="Timer" type="Timer" parent="Camera3D/WeaponManager"]
-autostart = true
-
 [node name="CharacterMover" parent="." instance=ExtResource("2_monf5")]
 
 [node name="HealthManager" parent="." instance=ExtResource("3_gtsfv")]
-
-[connection signal="timeout" from="Camera3D/WeaponManager/Timer" to="Camera3D/WeaponManager" method="_on_timer_timeout"]

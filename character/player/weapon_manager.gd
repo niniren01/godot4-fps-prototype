@@ -46,3 +46,11 @@ func switch_to_weapon_slot(slot_index: int) -> bool:
 	else:
 		cur_weapon.show()
 	return true
+
+func test_weapon_attack():
+	for weapon in weapons:
+		weapon.get_node("Graphics/AnimationPlayer").play("attack")
+
+
+func _on_timer_timeout() -> void:
+	test_weapon_attack()

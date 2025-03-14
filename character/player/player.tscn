@@ -3,13 +3,12 @@
 [ext_resource type="Script" uid="uid://c8n25wfmewh26" path="res://character/player/player.gd" id="1_2orxn"]
 [ext_resource type="PackedScene" uid="uid://bsqcjg1bmfgcv" path="res://character/character_mover.tscn" id="2_monf5"]
 [ext_resource type="Script" uid="uid://bj82an56hpa8j" path="res://character/player/weapon_manager.gd" id="2_wu8e1"]
+[ext_resource type="PackedScene" uid="uid://dipfurqmgavwu" path="res://weapon/assets/knife.blend" id="3_g20gq"]
 [ext_resource type="PackedScene" uid="uid://dyyekyvnjpcmr" path="res://character/health_manager.tscn" id="3_gtsfv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8e4qx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2orxn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_gtsfv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wu8e1"]
 
@@ -38,9 +37,8 @@ script = ExtResource("2_wu8e1")
 
 [node name="Weapons" type="Node3D" parent="Camera3D/WeaponManager"]
 
-[node name="Knife" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons"]
-transform = Transform3D(-0.0497154, -0.141847, 0, 0.0549556, -0.128321, 0, 0, 0, 1.03048, 0.507762, -0.723776, -1.05079)
-mesh = SubResource("BoxMesh_gtsfv")
+[node name="Knife" parent="Camera3D/WeaponManager/Weapons" instance=ExtResource("3_g20gq")]
+transform = Transform3D(-0.723448, -0.081718, 0.685525, -0.690293, 0.0699632, -0.72014, 0.0108867, -0.994197, -0.107024, 1.04314, -0.794724, -1.10844)
 
 [node name="MachineGun" type="MeshInstance3D" parent="Camera3D/WeaponManager/Weapons"]
 transform = Transform3D(0.325678, 0, 0, 0, 0.386337, 0, 0, 0, 1.71876, 0.588323, -0.490453, -1.20732)

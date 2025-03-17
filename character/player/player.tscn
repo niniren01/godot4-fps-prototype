@@ -13,6 +13,21 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2orxn"]
 
+[sub_resource type="Animation" id="Animation_hr31g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.14178, 0, 0.101682)]
+}
+
 [sub_resource type="Animation" id="Animation_qh58e"]
 resource_name = "attack"
 length = 0.1
@@ -29,7 +44,13 @@ tracks/0/keys = {
 "values": [Vector3(0.144109, 0, 0.0878653), Vector3(0.0909069, 0, 0.0844454), Vector3(0.144109, 0, 0.0878653)]
 }
 
-[sub_resource type="Animation" id="Animation_hr31g"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqp71"]
+_data = {
+&"RESET": SubResource("Animation_hr31g"),
+&"attack": SubResource("Animation_qh58e")
+}
+
+[sub_resource type="Animation" id="Animation_vuhga"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -41,13 +62,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.14178, 0, 0.101682)]
+"values": [Vector3(0.00707486, 0.00221539, -0.035266)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqp71"]
-_data = {
-&"RESET": SubResource("Animation_hr31g"),
-&"attack": SubResource("Animation_qh58e")
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:quaternion")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(5.96629e-10, 2.32831e-10, 1.49012e-08, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_lqp71"]
@@ -78,7 +105,13 @@ tracks/1/keys = {
 "values": [Quaternion(5.96629e-10, 2.32831e-10, 1.49012e-08, 1), Quaternion(-0.00324391, -0.00299911, -0.0434676, 0.999045), Quaternion(0.00406525, -0.0310842, 0.506248, 0.861818), Quaternion(0.00764471, -0.0426692, 0.747334, 0.663033), Quaternion(-0.0756653, -0.116044, 0.793397, 0.59273), Quaternion(-0.0756653, -0.116044, 0.793397, 0.59273), Quaternion(5.96629e-10, 2.32831e-10, 1.49012e-08, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_vuhga"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muf2e"]
+_data = {
+&"RESET": SubResource("Animation_vuhga"),
+&"attack": SubResource("Animation_lqp71")
+}
+
+[sub_resource type="Animation" id="Animation_jo6ux"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -90,7 +123,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.00707486, 0.00221539, -0.035266)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -102,13 +135,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Quaternion(5.96629e-10, 2.32831e-10, 1.49012e-08, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_muf2e"]
-_data = {
-&"RESET": SubResource("Animation_vuhga"),
-&"attack": SubResource("Animation_lqp71")
+"values": [Quaternion(0.0054829, 0.00071272, -0.0600541, 0.99818)]
 }
 
 [sub_resource type="Animation" id="Animation_muf2e"]
@@ -139,7 +166,13 @@ tracks/1/keys = {
 "values": [Quaternion(0.0054829, 0.00071272, -0.0600541, 0.99818), Quaternion(0.0054829, 0.00071272, -0.0600541, 0.99818), Quaternion(0.0054829, 0.00071272, -0.0600541, 0.99818)]
 }
 
-[sub_resource type="Animation" id="Animation_jo6ux"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkbv7"]
+_data = {
+&"RESET": SubResource("Animation_jo6ux"),
+&"attack": SubResource("Animation_muf2e")
+}
+
+[sub_resource type="Animation" id="Animation_v2h1c"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -151,7 +184,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(5.96046e-08, 1.49012e-08, -1.19209e-07)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -163,13 +196,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Quaternion(0.0054829, 0.00071272, -0.0600541, 0.99818)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkbv7"]
-_data = {
-&"RESET": SubResource("Animation_jo6ux"),
-&"attack": SubResource("Animation_muf2e")
+"values": [Quaternion(-0.11583, 0.232506, 0.00886421, 0.965632)]
 }
 
 [sub_resource type="Animation" id="Animation_0cf6c"]
@@ -198,33 +225,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Quaternion(-0.11583, 0.232506, 0.00886421, 0.965632), Quaternion(-0.301629, -0.351053, 0.774837, 0.430592), Quaternion(0.542504, 0.113967, 0.237864, 0.797572), Quaternion(-0.11583, 0.232506, 0.00886421, 0.965632)]
-}
-
-[sub_resource type="Animation" id="Animation_v2h1c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(5.96046e-08, 1.49012e-08, -1.19209e-07)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:quaternion")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Quaternion(-0.11583, 0.232506, 0.00886421, 0.965632)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qh58e"]
@@ -262,7 +262,6 @@ visible = false
 transform = Transform3D(0.993817, 0, -0.111035, 0, 1, 0, 0.111035, 0, 0.993817, 0.14178, 0, 0.101682)
 
 [node name="MachineGun_G" parent="Camera3D/WeaponManager/Weapons/MachineGun/Graphics" instance=ExtResource("4_eu8pa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/MachineGun/Graphics"]
 libraries = {
@@ -274,7 +273,7 @@ transform = Transform3D(0.0117276, -0.0794211, 1.59798, -0.100605, 1.59483, 0.08
 visible = false
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/ShotGun"]
-transform = Transform3D(1, -2.98023e-08, 4.65661e-10, 2.98023e-08, 1, -1.19326e-09, -4.65661e-10, 1.19326e-09, 1, 0.00707486, 0.00221539, -0.035266)
+transform = Transform3D(1, -2.98024e-08, 4.65662e-10, 2.98024e-08, 1, -1.19326e-09, -4.65662e-10, 1.19326e-09, 1, 0.00707486, 0.00221539, -0.035266)
 rotation_edit_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/WeaponManager/Weapons/ShotGun/Graphics"]
@@ -290,7 +289,7 @@ transform = Transform3D(-0.181829, -0.0236359, 1.99158, 0.212525, 1.98821, 0.042
 visible = false
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/RPG"]
-transform = Transform3D(0.992785, 0.119897, 0.000764303, -0.119882, 0.992726, -0.0110314, -0.00208139, 0.0108602, 0.999938, 0, 0, 0)
+transform = Transform3D(0.992785, 0.119897, 0.000764303, -0.119882, 0.992726, -0.0110314, -0.00208138, 0.0108602, 0.999938, 0, 0, 0)
 rotation_edit_mode = 1
 
 [node name="RPG_G" parent="Camera3D/WeaponManager/Weapons/RPG/Graphics" instance=ExtResource("6_v2h1c")]
@@ -306,7 +305,7 @@ transform = Transform3D(-0.298293, -0.105247, 0.948654, -0.261231, 0.964955, 0.0
 visible = false
 
 [node name="Graphics" type="Node3D" parent="Camera3D/WeaponManager/Weapons/Knife"]
-transform = Transform3D(0.891728, -0.0709817, 0.446978, -0.0367434, 0.973012, 0.227822, -0.451085, -0.219578, 0.865051, 5.96046e-08, 1.49012e-08, -1.19209e-07)
+transform = Transform3D(0.891728, -0.0709817, 0.446978, -0.0367434, 0.973012, 0.227821, -0.451086, -0.219577, 0.865051, 5.96046e-08, 1.49012e-08, -1.19209e-07)
 rotation_edit_mode = 1
 
 [node name="Knife_G" parent="Camera3D/WeaponManager/Weapons/Knife/Graphics" instance=ExtResource("3_g20gq")]

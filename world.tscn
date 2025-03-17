@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://4npjgm5mneml"]
+[gd_scene load_steps=6 format=3 uid="uid://4npjgm5mneml"]
 
 [ext_resource type="PackedScene" uid="uid://yyf6n8h7uq57" path="res://character/player/player.tscn" id="1_f3sb7"]
-[ext_resource type="Texture2D" uid="uid://b3foqjxea2p0h" path="res://icon.svg" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://lawk6lurwp6k" path="res://environment.tscn" id="1_fj7yv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -16,26 +16,6 @@ sky = SubResource("Sky_f3sb7")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
-albedo_color = Color(0.632033, 0, 0.013966, 1)
-albedo_texture = ExtResource("1_fj7yv")
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
-size = Vector3(40, 1, 40)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gv5m4"]
-points = PackedVector3Array(-20, -0.5, -20, -20, 0.5, -20, 20, -0.5, -20, -20, -0.5, 20, -20, 0.5, 20, 20, 0.5, -20, 20, -0.5, 20, 20, 0.5, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_036b0"]
-albedo_color = Color(0.6605, 1, 0.03, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dwbse"]
-size = Vector3(40, 40, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pkg7o"]
-points = PackedVector3Array(20, 20, 0.5, 20, 20, -0.5, -20, 20, 0.5, 20, -20, 0.5, 20, -20, -0.5, -20, 20, -0.5, -20, -20, 0.5, -20, -20, -0.5)
-
 [node name="World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -45,56 +25,6 @@ environment = SubResource("Environment_fj7yv")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 26.4177, 0)
 shadow_enabled = true
 
-[node name="Environment" type="Node3D" parent="."]
-
-[node name="Ground" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_tlwt5")
-mesh = SubResource("BoxMesh_aqk2v")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Ground"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_gv5m4")
-
-[node name="Wall" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-material_override = SubResource("StandardMaterial3D_036b0")
-mesh = SubResource("BoxMesh_dwbse")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Wall"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pkg7o")
-
-[node name="Wall2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
-material_override = SubResource("StandardMaterial3D_036b0")
-mesh = SubResource("BoxMesh_dwbse")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Wall2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall2/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pkg7o")
-
-[node name="Wall3" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0, 0)
-material_override = SubResource("StandardMaterial3D_036b0")
-mesh = SubResource("BoxMesh_dwbse")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Wall3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall3/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pkg7o")
-
-[node name="Wall4" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 0)
-material_override = SubResource("StandardMaterial3D_036b0")
-mesh = SubResource("BoxMesh_dwbse")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Wall4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Wall4/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pkg7o")
+[node name="Environment" parent="." instance=ExtResource("1_fj7yv")]
 
 [node name="Player" parent="." instance=ExtResource("1_f3sb7")]
